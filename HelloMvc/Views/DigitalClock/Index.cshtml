@@ -1,0 +1,60 @@
+﻿@model DigitalClock
+
+<form method="post">
+    <div class="row">
+        <div class="col">
+            <input asp-for="Hours" class="form-control" />
+        </div>
+        <div class="col">
+            <input asp-for="Minutes" class="form-control" />
+        </div>
+        <div class="col">
+            <select class="form-select" asp-for="AmPm" asp-items="Model.AmPmItems">
+            </select>
+        </div>
+        <div class="col">
+            <button type="submit" class="btn btn-success">Show time</button>
+        </div>
+    </div>
+</form>
+
+<h4>
+    @Model.Time
+</h4>
+
+
+@*<form method="post">
+    <div class="row">
+        <div class="col">
+            <input type="number" name="hours" class="form-control" value="@ViewBag.Hours" />
+        </div>
+        <div class="col">
+            <input type="number" name="minutes" class="form-control" value="@ViewBag.Minutes" />
+        </div>
+        <div class="col">
+            <select class="form-select" name="amPm" >
+                <option value=""></option>
+         
+                @if (ViewBag.AmPm == "AM") {
+                    <option selected value="AM">AM</option>
+                } else {
+                    <option value="AM">AM</option>
+                }
+
+                @if (ViewBag.AmPm == "PM") {
+                    <option selected value="PM">PM</option>
+                } else {
+                    <option value="PM">PM</option>
+                }
+
+            </select>
+        </div>
+        <div class="col">
+            <button type="submit" class="btn btn-success">Show time</button>
+        </div>
+    </div>
+</form>
+
+<h4 >
+    @ViewBag.Time
+</h4>*@

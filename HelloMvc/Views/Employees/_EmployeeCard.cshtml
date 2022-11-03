@@ -1,0 +1,87 @@
+﻿@model Employee
+<div class="card h-100">
+    <div class="card-body">
+
+        <div class="row g-0">
+            <div class="col-md-4 text-center text-md-start">
+                <img src="https://picsum.photos/200/200" class="img-fluid rounded-circle shadow" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body text-center text-md-start">
+                    <h5 class="card-title">
+                        <a asp-controller="Employees" asp-action="Edit" 
+                           class="text-decoration-none text-primary"
+                           asp-route-id="@Model.EmployeeId">@Model.FirstName @Model.LastName </a>
+                    </h5>
+                    <address>
+                        <abbr title="Phone">P:</abbr>
+                        <a href="tel:2155551212"> (123) 456-7890</a>
+                        <div> <strong>January, 28 </strong> <span class="text-muted">(56)</span>  </div>
+                    </address>
+                    <p class="card-text">
+                        <div><strong>Days in Office</strong></div>
+                        <div>Tuesday, Wednesday</div>
+                        <div> 8:00AM - 5:00PM </div>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        @* vacations*@
+        <div class="row mt-2">
+            <div class="col">
+                <ul class="list-group ">
+                    <li class="active list-group-item">Upcoming Vacation</li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div> November 3 - November 5 </div>
+                            <small class="text-muted">Going to Poconos</small>
+
+                        </div>
+                        <span class="badge bg-primary rounded-pill">2 days</span>
+                    </li>
+
+
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div>December 23 - January 2 </div>
+                            <small class="text-muted">Merry Christmas</small>
+
+                        </div>
+                        <span class="badge bg-primary rounded-pill">5 days</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        @*comp days *@
+        <div class="row">
+            <div class="col">
+                <ul class="list-group mt-3 ">
+                    <li class="bg-warning text-white list-group-item">Comp Days</li>
+                    <li class="list-group-item">
+                        <div class="d-flex justify-content-between">
+                            <span>
+                                Veterans Day (July 4th)
+                            </span>
+                            <span class="badge bg-success">Sep 1st</span>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item">
+                        <div class="d-flex justify-content-between">
+                            <span>
+                                Veterans Day (November 11)
+                            </span>
+
+                            <span class="badge bg-warning">pending</span>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+</div>

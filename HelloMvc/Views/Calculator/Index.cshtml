@@ -1,0 +1,40 @@
+﻿
+<div>
+    <form method="post" >
+        <div class="row">
+            <div class="col">
+                <label>Argument 1</label>
+                <input type="text" name="Argument1" value="" class="form-control"/>
+
+            </div>
+            <div class="col">
+                <label>Operator</label>
+                <select name="op" class="form-select">
+                    <option value=""></option>
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="/">/</option>
+                    <option value="*">*</option>
+                </select>
+            </div>
+            <div class="col">
+                <label>Argument 2</label>
+                <input type="text" name="arg2" class="form-control"/>
+            </div>
+            <div class="col">
+                <label></label>
+                <div>
+                    <button class="btn btn-success" type="submit">Calculate</button>
+                </div>
+
+            </div>
+        </div>
+    </form>
+
+    @if (ViewBag.Result != null) {
+        <div class="alert alert-dark">
+            @ViewBag.Result
+        </div>
+
+    }
+</div>

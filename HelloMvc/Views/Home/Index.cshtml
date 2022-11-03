@@ -1,0 +1,73 @@
+﻿@model HelloMvc.Models.VM.HomeVm
+
+@{
+    var message = "Razor rules!";
+    var h1 = "<h2>my page title</h2>";
+    //var h1 = "<script>window.location='https://google.com'</script>";
+}
+
+
+
+@*
+
+<h2>@Model.PageName</h2>
+
+@foreach (var empl in Model.Employees) {
+    <div>@empl.FirstName </div>
+}
+
+<form method="post">
+    <input type="text" name="FirstName" />
+    <input type="text" name="LastName" />
+    <input type="date" name="DateOfBirth" />
+    <button type="submit">Submit</button>
+</form>
+*@
+
+
+
+
+
+
+
+
+
+
+@*@h1
+@Html.Raw(h1)*@
+@*<div class="text-center">
+    <h1 class="display-4">Orest is a nice guy</h1>
+
+    <div class="text-center">
+        <a href="/Employees" class="btn btn-warning">Employees </a>
+    </div>
+
+    <div class="mt-4">
+        My Message is @message . Do you like it 4+4 = @(4 + 4)
+    </div>
+
+    @foreach (var e in emloyees) {
+        <div>@e.FirstName </div>
+    }
+
+    <h4>
+        @if (DateTime.Today.DayOfWeek == DayOfWeek.Monday || DateTime.Today.DayOfWeek == DayOfWeek.Wednesday) {
+            <text> Today is a good day</text>
+        }
+    </h4>
+</div>
+
+Hello  @ViewBag.Name. And I'm @ViewBag.Age years old
+*@
+
+
+<div>
+    <a asp-controller="DigitalClock" asp-action="Index" class="btn btn-primary">Digital Clock</a>
+</div>
+
+1. need form with method="post"
+2. button type submit
+3. inside form - input with the name
+4. create action that handles POST
+5. action needs to have input param with name = input name
+
