@@ -32,7 +32,6 @@ namespace HelloMvc.Controllers {
         public IActionResult Create(Employee model)
         {
             _repo.Add(model);
-
             return RedirectToAction("Index");
         }
 

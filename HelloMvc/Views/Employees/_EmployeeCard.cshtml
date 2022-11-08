@@ -9,19 +9,22 @@
             <div class="col-md-8">
                 <div class="card-body text-center text-md-start">
                     <h5 class="card-title">
-                        <a asp-controller="Employees" asp-action="Edit" 
+                        <a asp-controller="Employees" asp-action="Edit"
                            class="text-decoration-none text-primary"
                            asp-route-id="@Model.EmployeeId">@Model.FirstName @Model.LastName </a>
                     </h5>
                     <address>
                         <abbr title="Phone">P:</abbr>
-                        <a href="tel:2155551212"> (123) 456-7890</a>
-                        <div> <strong>January, 28 </strong> <span class="text-muted">(56)</span>  </div>
+                        <a href="tel:2155551212"> @Model.PhoneNumber</a>
+                        <div>
+                            <strong>@Model.DateOfBirth.ToString("M") </strong>
+                            <span class="text-muted">(@(Model.DateOfBirth.DayOfYear-DateTime.Today.DayOfYear-1) days before)</span>
+                        </div>
                     </address>
                     <p class="card-text">
                         <div><strong>Days in Office</strong></div>
-                        <div>Tuesday, Wednesday</div>
-                        <div> 8:00AM - 5:00PM </div>
+                        <div>@Model.DaysInOffice</div>
+                        <div> @Model.StartWorkingTime.ToString("hh:mm tt") - @Model.EndWorkingTime.ToString("hh:mm tt") </div>
                     </p>
                 </div>
             </div>
