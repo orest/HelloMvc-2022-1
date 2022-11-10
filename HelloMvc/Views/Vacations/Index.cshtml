@@ -1,0 +1,49 @@
+﻿@model Employee
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Vacation for @Model.FirstName @Model.LastName</h2>
+
+<p class="text-end">
+    <a asp-action="Create" asp-route-employeeId="@Model.EmployeeId" class="btn btn-success">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Comment
+            </th>
+            <th>
+                From Date
+            </th>
+            <th>
+                To Date
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Vacations) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FromDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ToDate)
+                </td>
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.VacationId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.VacationId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.VacationId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

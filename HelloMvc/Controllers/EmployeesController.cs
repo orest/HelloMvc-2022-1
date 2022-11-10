@@ -16,39 +16,54 @@ namespace HelloMvc.Controllers {
             return View(_repo.GetAll());
         }
 
-
-
         public IActionResult Hello() {
             return View();
         }
 
         //Create New User
-        public IActionResult Create()
-        {
+        public IActionResult Create() {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Create(Employee model)
-        {
+        public IActionResult Create(Employee model) {
             _repo.Add(model);
             return RedirectToAction("Index");
         }
 
-
-
-
+        [HttpGet]
         public IActionResult Edit(int id) {
-            //var emp = employees.FirstOrDefault(p => p.EmployeeId == id);
-            //return View(emp);
-            return View();
+            var employee = _repo.GetById(id);
+            return View(employee);
         }
 
         [HttpPost]
         public IActionResult Edit(Employee employee) {
-            //apply modified values
-            //employees.First().FirstName = "Orest";
+
+            var results = _repo.Update(employee);
+            if (results) {
+                return RedirectToAction("Index");
+            }
             return View(employee);
         }
+
+
+
+        [HttpGet]
+        public IActionResult Delete(int id) {
+            var employee = _repo.GetById(id);
+            return View(employee);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Employee employee) {
+
+            var results = _repo.Delete(employee.EmployeeId);
+            if (results) {
+                return RedirectToAction("Index");
+            }
+            return View(employee);
+        }
+
     }
 }
