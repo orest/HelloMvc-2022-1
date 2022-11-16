@@ -10,6 +10,7 @@ namespace HelloMvc.Repo {
         bool Delete(int employeeId);
         List<Employee> GetBirthdayBoysAndGirls();
         List<Employee> GetOnVacation();
+        List<Employee> GetEmployeesInOffice();
 
     }
 }

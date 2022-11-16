@@ -4,6 +4,7 @@ using HelloMvc.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HelloMvc.Migrations
 {
     [DbContext(typeof(EmployeeContext))]
-    partial class EmployeeContextModelSnapshot : ModelSnapshot
+    [Migration("20221115001509_add_holiday")]
+    partial class add_holiday
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -69,63 +71,6 @@ namespace HelloMvc.Migrations
                     b.HasKey("HolidayCode");
 
                     b.ToTable("Holidays");
-
-                    b.HasData(
-                        new
-                        {
-                            HolidayCode = "NYD",
-                            DisplayName = "New Year's Day"
-                        },
-                        new
-                        {
-                            HolidayCode = "MLKJD",
-                            DisplayName = "Martin Luther King Jr. Day"
-                        },
-                        new
-                        {
-                            HolidayCode = "WB",
-                            DisplayName = "Washington's Birthday"
-                        },
-                        new
-                        {
-                            HolidayCode = "MD",
-                            DisplayName = "Memorial Day"
-                        },
-                        new
-                        {
-                            HolidayCode = "JTTH",
-                            DisplayName = "Juneteenth"
-                        },
-                        new
-                        {
-                            HolidayCode = "ID",
-                            DisplayName = "Independence Day"
-                        },
-                        new
-                        {
-                            HolidayCode = "LD",
-                            DisplayName = "Labor Day"
-                        },
-                        new
-                        {
-                            HolidayCode = "CD",
-                            DisplayName = "Columbus Day"
-                        },
-                        new
-                        {
-                            HolidayCode = "VD",
-                            DisplayName = "Veterans Day"
-                        },
-                        new
-                        {
-                            HolidayCode = "TG",
-                            DisplayName = "Thanksgiving"
-                        },
-                        new
-                        {
-                            HolidayCode = "CM",
-                            DisplayName = "Christmas"
-                        });
                 });
 
             modelBuilder.Entity("HelloMvc.Models.Vacation", b =>

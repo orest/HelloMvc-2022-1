@@ -8,6 +8,8 @@ namespace HelloMvc.Repo {
 
         public EmployeeRepo(EmployeeContext context) {
             _context = context;
+
+            var day = DateTime.Now.DayOfWeek.ToString();
         }
 
         public int Add(Employee employee) {
@@ -65,6 +67,17 @@ namespace HelloMvc.Repo {
 
         public List<Employee> GetOnVacation() {
             throw new NotImplementedException();
+        }
+
+        public List<Employee> GetEmployeesInOffice()
+        {
+            var today = DateTime.Today.DayOfWeek;
+            var searchExpression =$"%{today.ToString()}%";
+
+            var data = _context.Employees.Where(p => EF.Functions.Like(p.DaysInOffice, searchExpression))
+                .ToList();
+           
+            return data;
         }
     }
 }

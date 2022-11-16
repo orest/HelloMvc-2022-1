@@ -42,6 +42,11 @@ namespace HelloMvc.Repo {
             throw new NotImplementedException();
         }
 
+        public List<Employee> GetEmployeesInOffice()
+        {
+            throw new NotImplementedException();
+        }
+
         public bool Update(Employee employee) {
             throw new NotImplementedException();
         }

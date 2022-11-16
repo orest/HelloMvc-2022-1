@@ -28,11 +28,16 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="DigitalClock" asp-action="Index">Digital Clock</a>
                         </li>
-                        
+
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Employees" asp-action="Index">Employees</a>
                         </li>
+
                     </ul>
+                </div>
+                <div class="me-auto">
+
+                    @await Component.InvokeAsync("EmployeesInOffice")
                 </div>
             </div>
         </nav>
