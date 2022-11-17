@@ -20,13 +20,29 @@ namespace HelloMvc.Repo {
 
         public List<Employee> GetAll() {
 
-            return _context.Employees.ToList();
+            var emplpoyees = _context.Employees
+                .Include(p => p.Vacations.Where(v => v.FromDate > DateTime.Today))
+                .ToList();
 
+            //foreach (var emplpoyee in emplpoyees)
+            //{
+            //    emplpoyee.Vacations = emplpoyee.Vacations.Where(p => p.FromDate > DateTime.Now).ToList();
+            //}
+
+            return emplpoyees;
         }
 
         public Employee GetById(int employeeId) {
             return _context.Employees.Find(employeeId);
             //return _context.Employees.FirstOrDefault(p=>p.EmployeeId==employeeId);
+        }
+
+        public Employee GetByIdWithDetails(int employeeId) {
+            var employee = _context.Employees
+                .Include(p => p.Vacations)
+                .FirstOrDefault(p => p.EmployeeId == employeeId);
+
+            return employee;
         }
 
         public bool Update(Employee employee) {
@@ -46,7 +62,7 @@ namespace HelloMvc.Repo {
                 return false;
             }
 
-           
+
             return true;
         }
 
@@ -69,14 +85,13 @@ namespace HelloMvc.Repo {
             throw new NotImplementedException();
         }
 
-        public List<Employee> GetEmployeesInOffice()
-        {
+        public List<Employee> GetEmployeesInOffice() {
             var today = DateTime.Today.DayOfWeek;
-            var searchExpression =$"%{today.ToString()}%";
+            var searchExpression = $"%{today.ToString()}%";
 
             var data = _context.Employees.Where(p => EF.Functions.Like(p.DaysInOffice, searchExpression))
                 .ToList();
-           
+
             return data;
         }
     }

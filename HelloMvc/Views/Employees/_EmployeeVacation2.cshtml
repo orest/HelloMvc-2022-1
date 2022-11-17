@@ -1,0 +1,33 @@
+﻿@model HelloMvc.Models.VM.VacationCardVm
+
+@if (Model.Vacations.Any()) {
+    <ul class="list-group ">
+        <li class="active list-group-item">
+            <div class="d-flex justify-content-between">
+                Upcoming Vacation
+                <a asp-action="Index" asp-controller="Vacations"
+               asp-route-employeeId="@Model.EmployeeId" class="text-white"> view</a>
+            </div>
+
+        </li>
+
+        @foreach (var vacation in Model.Vacations.Where(p=>p.FromDate>DateTime.Now)) {
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                    <div> @vacation.FromDate.ToString("MMM dd") - @vacation.ToDate.ToString("MMM dd") </div>
+                    <small class="text-muted">@vacation.Comment</small>
+                </div>
+                <span class="badge bg-primary rounded-pill">
+                    in
+                    @(vacation.FromDate.DayOfYear - DateTime.Today.DayOfYear) days
+
+                </span>
+            </li>
+
+        }
+
+
+
+    </ul>
+
+}

@@ -5,8 +5,14 @@
         @Model.Count
     </button>
     <ul class="dropdown-menu dropdown-menu-lg-end">
-        <li><a class="dropdown-item"  href="#">Menu item</a></li>
-        <li><a class="dropdown-item" href="#">Menu item</a></li>
-        <li><a class="dropdown-item" href="#">Menu item</a></li>
+        @foreach (var emp in Model)
+        {
+            <li>
+                <a class="dropdown-item" 
+                   asp-controller="Employees" asp-action="Details" asp-route-id="@emp.EmployeeId">
+                    @emp.FirstName @emp.LastName
+                </a>
+            </li>
+        }
     </ul>
 </div>

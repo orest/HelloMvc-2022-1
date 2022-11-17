@@ -1,4 +1,13 @@
-﻿@model Employee
+﻿@using HelloMvc.Models.VM
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Employee
+<div>
+    @ViewBag.mode
+</div>
+<div>
+    @ViewBag.employeeId
+</div>
+
 <div class="card h-100">
     <div class="card-body">
 
@@ -9,7 +18,7 @@
             <div class="col-md-8">
                 <div class="card-body text-center text-md-start">
                     <h5 class="card-title">
-                        <a asp-controller="Employees" asp-action="Edit"
+                        <a asp-controller="Employees" asp-action="Details"
                            class="text-decoration-none text-primary"
                            asp-route-id="@Model.EmployeeId">@Model.FirstName @Model.LastName </a>
                     </h5>
@@ -18,7 +27,7 @@
                         <a href="tel:2155551212"> @Model.PhoneNumber</a>
                         <div>
                             <strong>@Model.DateOfBirth.ToString("M") </strong>
-                            <span class="text-muted">(@(Model.DateOfBirth.DayOfYear-DateTime.Today.DayOfYear-1) days before)</span>
+                            <span class="text-muted">(@(Model.DateOfBirth.DayOfYear - DateTime.Today.DayOfYear - 1) days before)</span>
                         </div>
                     </address>
                     <p class="card-text">
@@ -34,42 +43,49 @@
         @* vacations*@
         <div class="row mt-2">
             <div class="col">
-                <ul class="list-group ">
-                    <li class="active list-group-item">
-                        
-                        <div class="d-flex justify-content-between">
-                            Upcoming Vacation
-                            <a asp-action="Index" asp-controller="Vacations"
-                               asp-route-employeeId="@Model.EmployeeId" class="text-white"> view</a>
-                        </div>
-                      
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div class="ms-2 me-auto">
-                            <div> November 3 - November 5 </div>
-                            <small class="text-muted">Going to Poconos</small>
-
-                        </div>
-                        <span class="badge bg-primary rounded-pill">2 days</span>
-                    </li>
-
-
-                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div class="ms-2 me-auto">
-                            <div>December 23 - January 2 </div>
-                            <small class="text-muted">Merry Christmas</small>
-
-                        </div>
-                        <span class="badge bg-primary rounded-pill">5 days</span>
-                    </li>
-                </ul>
+                <partial name="_EmployeeVacation" for="Vacations" />
             </div>
         </div>
 
+        @*<partial name="_EmployeeVacation2" model="new VacationCardVm() {EmployeeId = Model.EmployeeId, Vacations = Model.Vacations, Mode =1} " />
+        *@
+        @*    <div class="row mt-2">
+        <div class="col">
+        <ul class="list-group ">
+        <li class="active list-group-item">
+        <div class="d-flex justify-content-between">
+        Upcoming Vacation
+        <a asp-action="Index" asp-controller="Vacations"
+        asp-route-employeeId="@Model.EmployeeId" class="text-white"> view</a>
+        </div>
+
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+        <div> November 3 - November 5 </div>
+        <small class="text-muted">Going to Poconos</small>
+
+        </div>
+        <span class="badge bg-primary rounded-pill">2 days</span>
+        </li>
+
+
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+        <div>December 23 - January 2 </div>
+        <small class="text-muted">Merry Christmas</small>
+
+        </div>
+        <span class="badge bg-primary rounded-pill">5 days</span>
+        </li>
+        </ul>
+        </div>
+        </div>*@
+
         @*comp days *@
-        <div class="row">
+        <div class="row mt-2">
             <div class="col">
-                <ul class="list-group mt-3 ">
+                <ul class="list-group ">
                     <li class="bg-warning text-white list-group-item">Comp Days</li>
                     <li class="list-group-item">
                         <div class="d-flex justify-content-between">

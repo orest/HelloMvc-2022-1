@@ -6,6 +6,7 @@ namespace HelloMvc.Repo {
         int Add(Employee employee);
         List<Employee> GetAll();
         Employee GetById(int employeeId);
+        Employee GetByIdWithDetails(int employeeId);
         bool Update(Employee employee);
         bool Delete(int employeeId);
         List<Employee> GetBirthdayBoysAndGirls();

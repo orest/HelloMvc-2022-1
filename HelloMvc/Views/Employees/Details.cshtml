@@ -1,0 +1,14 @@
+﻿@model HelloMvc.Models.Employee
+@{
+    var viewData = new ViewDataDictionary(this.ViewData) { { "mode", "edit" }, { "employeeId",Model.EmployeeId } };
+
+}
+    
+<div class="col-8 offset-2">
+    <div class="text-end mb-3">
+        <a class="btn btn-primary">Edit</a>
+        <a class="btn btn-warning">Add Vacation</a>
+        <a class="btn btn-success">Add Comp Day</a>
+    </div>
+    <partial name="_EmployeeCard" model="Model" view-data="viewData" />
+</div>

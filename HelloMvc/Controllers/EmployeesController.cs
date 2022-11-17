@@ -16,7 +16,7 @@ namespace HelloMvc.Controllers {
             return View(_repo.GetAll());
         }
 
-        public IActionResult Hello() {
+        public IActionResult Hello(string search) {
             return View();
         }
 
@@ -47,6 +47,13 @@ namespace HelloMvc.Controllers {
             return View(employee);
         }
 
+
+
+        [HttpGet]
+        public IActionResult Details(int id) {
+            var employee = _repo.GetByIdWithDetails(id);
+            return View(employee);
+        }
 
 
         [HttpGet]

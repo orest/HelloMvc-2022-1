@@ -33,6 +33,11 @@ namespace HelloMvc.Repo {
             throw new NotImplementedException();
         }
 
+        public Employee GetByIdWithDetails(int employeeId)
+        {
+            throw new NotImplementedException();
+        }
+
         //this week 
         public List<Employee> GetOnVacation() {
 
