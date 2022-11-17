@@ -1,4 +1,6 @@
-﻿@model Employee
+﻿@using HelloMvc.Models.VM
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Employee
 
 @{
     ViewData["Title"] = "Index";
@@ -49,4 +51,4 @@
 </table>
 
                     
-<partial name="_EmployeeVacation" for="Vacations" />
+<partial name="_EmployeeVacation" model="new VacationCardVm(){EmployeeId = Model.EmployeeId, Vacations = Model.Vacations, Mode = 2}" />

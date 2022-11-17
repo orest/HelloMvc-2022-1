@@ -43,12 +43,17 @@
         @* vacations*@
         <div class="row mt-2">
             <div class="col">
-                <partial name="_EmployeeVacation" for="Vacations" />
+                <partial name="_EmployeeVacation" model="new VacationCardVm(){EmployeeId = Model.EmployeeId, Vacations = Model.Vacations}" />
+            </div>
+        </div>
+        
+        <div class="row mt-2">
+            <div class="col">
+                @*<partial name="_EmployeeCompDays" for="CompDays" />*@
             </div>
         </div>
 
-        @*<partial name="_EmployeeVacation2" model="new VacationCardVm() {EmployeeId = Model.EmployeeId, Vacations = Model.Vacations, Mode =1} " />
-        *@
+        @*        <partial name="_EmployeeVacation2" model="new VacationCardVm() {EmployeeId = Model.EmployeeId, Vacations = Model.Vacations, Mode =1} " />*@
         @*    <div class="row mt-2">
         <div class="col">
         <ul class="list-group ">
